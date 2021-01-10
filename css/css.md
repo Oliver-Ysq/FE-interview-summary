@@ -42,7 +42,17 @@
 
    
 
-9. 伪元素选择器（::before、::after）
+9. 伪元素选择器（::before、::after）：
+
+   ```css
+    .clearfix:after{
+        content: '';
+        display: block; /*或者 table*/
+        clear: both;
+    }
+   ```
+
+   
 
 10. 通配符选择器（*）
 
@@ -199,7 +209,7 @@
 
 饥人谷前端讲解：https://www.yuque.com/hvvsva/gifilq/lfcu0n
 
-- BFC指的是块级格式化上下文，一个元素形成了BFC之后，那么它内部元素产生的布局不会影响到外部元素，外部元素的布局也不会影响到BFC中的内部元素。一个BFC就像是一个隔离区域，和其他区域互不影响。
+- BFC指的是块级格式化上下文，BFC 中的元素如何排列不会影响到 BFC 之外的元素。
 - 创建BFC的方法
   1. float
   2. position：absolute
@@ -211,11 +221,14 @@
 
 margin重叠指的是【在同一个bfc中】垂直方向上，两个相邻元素的margin发生重叠的情况。
 
-- **margin合并**：相邻兄弟元素的marin-bottom和margin-top的值发生重叠。这种情况下我们可以分别设置相邻兄弟为BFC来解决（float：left）。
+- **margin合并**：相邻兄弟元素的marin-bottom和margin-top的值发生重叠。
+
+  1. 分别设置相邻兄弟为BFC（float：left）
+  2. 为下方的兄弟设置BFC
 
 - **margin塌陷**：父元素的margin-top和子元素的margin-top发生重叠。我们可以：
 
-  1. 为父元素设置border-top、padding-top值来分隔它们。
+  1. 为父元素设置border-top、padding-top值来分隔它们（不推荐）。
   2. 将父元素设置为BFC。
 
   
@@ -228,12 +241,14 @@ margin重叠指的是【在同一个bfc中】垂直方向上，两个相邻元�
  .clearfix:after{
      content: '';
      display: block; /*或者 table*/
-     clear: both;
+     clear: both;	/*clear CSS 属性指定一个元素是否必须移动到在它之前的浮动元素下面。*/
  }
  .clearfix{
      zoom: 1; /* IE 兼容*/
  }
 ```
+
+<img src="C:\Users\25319\AppData\Roaming\Typora\typora-user-images\image-20210107105240963.png" alt="image-20210107105240963" style="zoom:33%;" />   =========================》<img src="C:\Users\25319\AppData\Roaming\Typora\typora-user-images\image-20210107105253686.png" alt="image-20210107105253686" style="zoom:33%; float: right" />
 
 ### 元素竖向的百分比设定是相对于容器的高度吗？
 
@@ -247,12 +262,19 @@ transition关注的是CSS属性的变化。
 
 animation作用于元素本身而不是样式属性，可以使用关键帧的概念，可以实现更自由的动画效果。
 
+### CSS和JS做动画
+
+- CSS 做动画：触发 GPU 加速，调用 GPU 能力，帧率高（60）。难动态设置。
+
+- JS 做动画：占用 JavaScript 引擎，使用 CPU 计算，帧率低（30-50）。易动态设置。
+
 ### flex布局
 
 参考：https://www.cnblogs.com/echolun/p/11299460.html
 
 ---
 
+```css
 flex-direction	// 主轴方向
 
 flex-wrap	// 是否自动换行：nowrap则会强行压缩item宽度；wrap会自动换行
@@ -264,16 +286,23 @@ justify-content	//item在主轴上的对齐方式
 align-item	//item在副轴上的对齐方式
 
 align-content	//多行item的副轴对齐方式
+```
+
+
 
 ---
 
-order：顺序
+```css
+order：// 顺序
 
-flex-grow： 1 有剩余空间时缩放
+flex-grow： 1 // 有剩余空间时进行缩放的比例
 
-flex-shrink：0 空间不足时也不缩小
+flex-shrink：0 // 当页面缩放至过小时，对应元素压缩的比例（flex-shrink越大，被压得越窄）
 
-flex：默认0 1 auto（分别为flex-grow flex-shrink flex-basis）
+flex：默认0 1 auto	//（分别为flex-grow flex-shrink flex-basis）
+```
+
+
 
 ### 多栏布局
 

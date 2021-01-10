@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .x {
+                width: 100px;
+                height: 100px;
+                background: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="x" id="q"></div>
+    </body>
+    <script>
+        function fn() {
+            console.log("hello");
+        }
+        const TIME = 2000;
+
+        // 函数节流
+        function throttle(fn, TIME) {
+            let timer,
+                flag = true;
+            return () => {
+                if (flag) {
+                    fn();
+                    flag = false;
+                    timer = setTimeout(() => {
+                        flag = true;
+                        clearTimeout(timer);
+                    }, TIME);
+                }
+            };
+        }
+
+        //防抖
+        function debounce(fn, TIME) {
+            let timeout;
+            return (...args) => {
+                if (timeout) clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    fn(...args);
+                    clearInterval(timeout);
+                }, TIME);
+            };
+        }
+
+        const handleClick = debounce(fn, TIME);
+
+        const div = document.querySelector("#q");
+        div.addEventListener("click", handleClick);
+    </script>
+</html>
