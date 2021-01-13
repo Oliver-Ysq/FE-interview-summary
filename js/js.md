@@ -273,15 +273,7 @@ class Child extends Parent {
 
 ![img](https://user-gold-cdn.xitu.io/2018/11/23/16740fa4cd9c6937?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
-<img src="https://user-gold-cdn.xitu.io/2020/1/18/16fb7adf5afc036d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" style="zoom: 50%;" />
-
-#### 执行顺序：
-
-1. 首先执行宏任务（同步代码都属于宏任务）
-2. 当执行完所有同步代码后，执行栈为空，查询是否有异步代码需要执行
-3. 执行所有微任务
-4. 当执行完所有微任务后，如有必要会渲染页面
-5. 然后开始下一轮 Event Loop，回到 1
+![image-20210110192733615](C:\Users\25319\AppData\Roaming\Typora\typora-user-images\image-20210110192733615.png)
 
 
 
