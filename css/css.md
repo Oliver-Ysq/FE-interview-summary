@@ -7,6 +7,8 @@
   - 标准盒模型的宽高范围只包含了content
   - IE盒模型的宽高范围包含了border、padding和content。
 
+
+
 ### CSS选择符
 
 1. id选择器（#myid）
@@ -175,6 +177,8 @@
 - inline-block  行内块元素。等价于可以设置宽高的inline元素。
 - table    表格。
 
+
+
 ### relative，positive，fixed的定位原点
 
 - relative定位的元素，是相对于元素本身的正常位置来进行定位的（不脱离文档流）
@@ -182,6 +186,8 @@
 - absolute定位的元素，是相对于举例该元素最近的，position值不为static的祖先元素来进行定位的。若不存在position不为static的元素则相对浏览器窗口定位。
 - fixed：相对浏览器窗口进行定位。
 - sticky：兼容很差，没了解过。
+
+
 
 ### CSS3特性
 
@@ -204,6 +210,8 @@
   ​	**注意：display: none => display:block 无法过渡**，一般该用visibility:hidden => visibility:visible
 
 - 动画 animation
+
+
 
 ### 对BFC的理解？
 
@@ -250,11 +258,15 @@ margin重叠指的是【在同一个bfc中】垂直方向上，两个相邻元�
 
 <img src="C:\Users\25319\AppData\Roaming\Typora\typora-user-images\image-20210107105240963.png" alt="image-20210107105240963" style="zoom:33%;" />   =========================》<img src="C:\Users\25319\AppData\Roaming\Typora\typora-user-images\image-20210107105253686.png" alt="image-20210107105253686" style="zoom:33%; float: right" />
 
+
+
 ### 元素竖向的百分比设定是相对于容器的高度吗？
 
 - 如果是height的话，是相对于容器的高度。
 
 - 如果是**padding或者margin**竖直方向的属性则是相对于**容器的宽度**。
+
+
 
 ### transition 和 animation 的区别
 
@@ -262,11 +274,15 @@ transition关注的是CSS属性的变化。
 
 animation作用于元素本身而不是样式属性，可以使用关键帧的概念，可以实现更自由的动画效果。
 
+
+
 ### CSS和JS做动画
 
 - CSS 做动画：触发 GPU 加速，调用 GPU 能力，帧率高（60）。难动态设置。
 
 - JS 做动画：占用 JavaScript 引擎，使用 CPU 计算，帧率低（30-50）。易动态设置。
+
+
 
 ### flex布局
 
@@ -294,6 +310,8 @@ align-content	//多行item的副轴对齐方式
 
 ```css
 order：// 顺序
+
+align-self: flex-start;	//	个别元素的副轴对齐方式
 
 flex-grow： 1 // 有剩余空间时进行缩放的比例
 

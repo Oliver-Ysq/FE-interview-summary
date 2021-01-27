@@ -247,13 +247,22 @@ class Child extends Parent {
 
 ### 数组的原生方法
 
-- 重排序的方法 reverse() 和 sort()，sort() 方法可以传入一个函数来进行比较，传入前后两个值，如果返回值为正数，则交换两个参数的位置。**影响原数组，返回新数组**。
+#### 数组的变更方法
 
-- 数组连接的方法 concat() ，返回的是拼接好的数组，**不影响原数组**。
+- sort()：可以传入一个函数来进行比较，传入前后两个值，如果返回值为正数，则交换两个参数的位置。
+- reverse()：交换次序
+- splice()：插入/删除元素方法
+- push，pop，shift，unshift
 
-- 数组截取办法 slice()，用于截取数组中的一部分返回，**不影响原数组**。
+#### 数组的替换方法
 
-- 数组插入方法 splice()，影响原数组查找特定项的索引的方法，indexOf() 和 lastIndexOf() 迭代方法 every()、some()、filter()、map() 和 forEach() 方法
+- 数组连接的方法 concat() ，返回的是拼接好的数组
+
+- 数组截取办法 slice()，用于截取数组中的一部分返回
+
+-  indexOf() 和 lastIndexOf() 迭代方法
+
+- every()、some()、filter()、map() 和 forEach() 方法：对数组项处理，返回结果
 
 - reduce方法：将数组中的值整合为一个值。
 
