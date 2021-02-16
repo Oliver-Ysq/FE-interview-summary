@@ -1,10 +1,9 @@
-# 浏览器
-
+## 浏览器篇
 
 
 ### 浏览器的渲染原理
 
-个人博客：https://segmentfault.com/a/1190000022084293
+更多：[https://juejin.cn/post/6844903824721707022](https://juejin.cn/post/6844903824721707022)
 
 
 
@@ -16,11 +15,11 @@
 
 - 知识点
 
-  ```
+
   SessionStorage， LocalStorage， Cookie 这三者都可以被用来在浏览器端存储数据，而且都是字符串类型的键值对。区别在于:
-  - 前两者属于 HTML5 WebStorage，创建它们的目的便于客户端存储数据。而 cookie 是网站为了标示用户身份而储存在用户本地终端上的数据（通常经过加密）。
-  - cookie 数据在同源（协议、主机、端口相同） http 请求中强制携带，会在浏览器和服务器间来回传递。
-  ```
+  - 前两者属于H5 webStorage，创建它们的目的便于客户端存储数据。
+  - cookie 数据在同源（协议、主机、端口相同）http请求中强制携带，会在浏览器和服务器间双向传递。cookie是 为了标示用户身份而储存在用户本地终端上的数据（通常经过加密）
+
 
 - 回答：
 
@@ -65,10 +64,9 @@
   ```
 
 
-
 ### 浏览器缓存机制
 
-参考：https://github.com/xiangxingchen/blog/issues/9
+更多：[https://github.com/xiangxingchen/blog/issues/9](https://github.com/xiangxingchen/blog/issues/9)
 
 #### 强缓存
 
@@ -85,14 +83,19 @@
 
   - 若不一致，则说明期间文件有更改，返回200和新文件；
 
-- last-modified：日期（2008.1.1）
+- last-modified / if-modified-since：日期（2008.1.1）
 
-  策略：查看从指定日期之后是否有干过更新：
+  策略：初次请求文件后，服务器返回 `last-modified` 代表文件上次的更改时间。下次客户端发送请求时，在 `if-modified-since` 字段填入 `last-modified` 的值，查看从指定日期之后是否有过更新：
 
-  - 若更新了，则说明期间文件未更改，返回304；
+  - 若有更新，则说明期间文件有更改，返回200和新文件；
 
-  - 若没更新，则说明期间文件有更改，返回200和新文件；
+  - 若未更新，则说明期间文件未更改，返回304；
 
 #### 完整缓存机制
 
 查强缓存 => 查若缓存 => 请求新文件
+
+
+## 经典面试题
+### 从输入URL到展示页面，发生了什么？
+[https://juejin.cn/post/6917095790221459469](https://juejin.cn/post/6917095790221459469)  
